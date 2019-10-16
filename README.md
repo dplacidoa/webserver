@@ -1,1 +1,5 @@
 ## Aplicación web
+
+```
+npm install
+```
