@@ -27,6 +27,6 @@ app.get('/about', (req, res) => {
 
 })
 
-app.listen(8080, () => {
+app.listen(port, () => {
     console.log(`Escuchando peticiones en el puerto ${port}`);
 });
