@@ -16,4 +16,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 80
-CMD [ "/usr/bin/node", "server.js" ]
+CMD [ "node", "server.js" ]
