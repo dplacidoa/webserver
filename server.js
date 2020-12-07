@@ -5,7 +5,7 @@ const hbs = require('hbs');
 //helpers
 require('./hbs/helpers/helpers')
 
-const port = process.env.PORT || 80;
+const port = 80;
 
 app.use(express.static(__dirname + '/public'))
 
