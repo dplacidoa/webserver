@@ -16,7 +16,7 @@ app.set('view engine', 'hbs');
 app.get('/', (req, res) => {
 
     res.render('home', {
-        nombre: 'entelgy'
+        nombre: 'Hola Entelgy 2020'
     });
 
 });
