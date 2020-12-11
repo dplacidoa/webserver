@@ -4,4 +4,4 @@
   become: yes
   tasks:
     - name: run command
-      command: ansible --version
+      command: cat /etc/hostname
