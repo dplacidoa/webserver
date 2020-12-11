@@ -5,3 +5,6 @@
   tasks:
     - name: run command
       command: cat /etc/hostname
+      register: out_hostname
+    - debug:
+        var=out_hostname
