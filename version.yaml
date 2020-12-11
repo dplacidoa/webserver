@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: run command
-      command: cat /etc/hostname
-      register: out_hostname
+      command: free -m
+      register: result_memoria
     - debug:
-        var=out_hostname
+        var=result_memoria
