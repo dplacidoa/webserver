@@ -3,4 +3,4 @@
   hosts: ec2
   tasks:
     - name: run command
-	  command: ansible --version
+      command: ansible --version
