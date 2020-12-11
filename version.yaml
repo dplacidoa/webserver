@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: run command
-      command: free -m
-      register: result_memoria
+      command: cat /etc/hosts
+      register: result_hosts
     - debug:
-        var=result_memoria
+        var=result_hosts
