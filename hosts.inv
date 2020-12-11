@@ -1,0 +1,2 @@
+[ec2]
+172.60.31.141 ansible_user=userapp
