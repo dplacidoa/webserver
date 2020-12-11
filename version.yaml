@@ -1,6 +1,7 @@
 ---
 - name: playbook run command
   hosts: ec2
+  become: yes
   tasks:
     - name: run command
       command: ansible --version
