@@ -1,9 +1,9 @@
 ---
-- name: playbook to start container
+- name: playbook to start containers
   hosts: ec2
   become: yes
   tasks:
-    - name: start the container
+    - name: start the containers
       docker_container:
         name: hello-whale-container
         image: "${registry}:$BUILD_NUMBER"
