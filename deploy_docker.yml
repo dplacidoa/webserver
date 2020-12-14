@@ -1,0 +1,13 @@
+---
+- name: playbook to start container
+  hosts: ec2
+  become: yes
+  tasks:
+    - name: start the container
+      docker_container:
+        name: hello-whale-container
+        image: "${registry}:$BUILD_NUMBER"
+        state: started
+        ports:
+        # Publish container port 9000 as host port 8080
+          - "8080:9000"
