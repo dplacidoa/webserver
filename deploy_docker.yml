@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: start the container
-      docker_container:
+      community.general.docker_container:
         name: hello-whale-container
         image: "${registry}:$BUILD_NUMBER"
         state: started
