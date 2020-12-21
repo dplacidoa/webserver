@@ -1,0 +1,10 @@
+---
+- name: playbook to start container
+  hosts: ec2
+  become: yes
+  tasks:
+    - name: pull the OS image
+      docker_container:
+        name: my-test-container
+        image: ubuntu:16.04
+        state: started
