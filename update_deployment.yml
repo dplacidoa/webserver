@@ -9,8 +9,8 @@
       copy:
         src: deployment.yml
         dest: /u01/kubernetes/
- #   - name: delete deployment file in kubernetes master
- #     command: kubectl delete -f /u01/kubernetes/deployment.yml
+    - name: delete deployment file in kubernetes master
+      command: kubectl delete -f /u01/kubernetes/deployment.yml
     - name: create deployment file in kubernetes master
       command: kubectl apply -f /u01/kubernetes/deployment.yml
         
