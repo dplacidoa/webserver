@@ -2,6 +2,8 @@
 - name: playbook to deploy on kubernetes
   hosts: ec2
   become: yes
+  become_method: sudo
+  become_user: userapp
   tasks:
     - name: copy deployment file to kubernetes master
       copy:
