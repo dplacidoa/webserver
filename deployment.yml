@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: web-herokuapp-container
-        image: 3.136.118.102:5000/repo_entelgy:latest
+        image: 3.136.118.102:5000/repo_entelgy:$BUILD_NUMBER
         imagePullPolicy: Always
         ports:
         - containerPort: 80
