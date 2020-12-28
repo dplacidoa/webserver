@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-herokuapp
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: app-heroku
+      version: blue
+  template:
+    metadata:
+      name: web-herokuapp-pod
+      labels:
+        app: app-heroku
+        version: blue
+    spec:
+      containers:
+      - name: web-herokuapp-container
+        image: 3.136.118.102:5000/repo_entelgy:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service 
+metadata:
+  name: app-heroku-svc
+  labels:
+    app: app-heroku
+spec:
+  selector:
+    app: app-heroku
+    version: blue
+  type: NodePort
+  ports:
+  - nodePort: 31113
+    port: 80
+    targetPort: 80

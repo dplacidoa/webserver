@@ -1,0 +1,10 @@
+---
+- name: playbook run command
+  hosts: ec2
+  become: yes
+  tasks:
+    - name: run command
+      command: cat /etc/hosts
+      register: result_hosts
+    - debug:
+        var=result_hosts

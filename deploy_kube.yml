@@ -1,0 +1,9 @@
+---
+- name: playbook to deploy on kubernetes
+  hosts: ec2
+  become: yes
+  tasks:
+    - name: deployment and service
+      k8s:
+        state: present
+        definition: "{{ lookup('file', 'app-prueba.yml') | from_yaml }}"
