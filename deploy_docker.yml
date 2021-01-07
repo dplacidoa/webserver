@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 - name: playbook to start container
   hosts: ec2
@@ -6,18 +5,7 @@
   tasks:
     - name: pull the OS image
       docker_container:
-        name: my-container
+        name: my-container-prueba
         image: ubuntu:16.04
         state: started
-=======
----
-- name: playbook to start container
-  hosts: ec2
-  become: yes
-  tasks:
-    - name: pull the OS image
-      docker_container:
-        name: my-test-container
-        image: ubuntu:16.04
-        state: started
->>>>>>> 2337601c0411b91827294dd25714ca902aeb16c1
+
