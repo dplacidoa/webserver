@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: run command
-      command: cat /etc/hosts
-      register: result_hosts
+      command: cat /etc/hostname
+      register: result_hostname
     - debug:
-        var=result_hosts
+        var=result_hostname
