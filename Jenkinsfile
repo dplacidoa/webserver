@@ -1,13 +1,13 @@
 pipeline {
   environment {
-    registry = "3.136.118.102:5000/repo_entelgy"
-    registryCredential = 'dockerprivate'
+    registry = "registry.gitlab.com/david.placido/ansible"
+    registryCredential = 'david.placido.gitlab'
   }
   agent any
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/ElmerYDQ/webserver-express.git'
+        git 'https://github.com/dplacidoa/webserver.git'
       }
     }
     stage('Building image') {
@@ -20,24 +20,16 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push(":$BUILD_NUMBER")
-            dockerImage.push(":latest")
+          docker.withRegistry( 'https://registry.gitlab.com', registryCredential ) {
+            dockerImage.push("$BUILD_NUMBER")
           }
         }
       }
     }
-    stage('Remove Unused docker image') {
-      steps{
-        sh "docker rmi $registry:$BUILD_NUMBER"
-      }
-    }
-    stage('Deploy App on Kubernetes') {
+    stage('Deploy container') {
       steps {
-        script {
-          kubernetesDeploy(configs: "app-prueba.yml", kubeconfigId: "kubeconfig")
+            ansiblePlaybook installation: 'Ansible', inventory: 'hosts.inv', playbook: 'deploy_docker.yml'      
         }
-      }
     }
   }
 }
